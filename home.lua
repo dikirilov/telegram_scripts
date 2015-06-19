@@ -10,7 +10,7 @@
       if msg.out then
           return
       end
-    if (utf8.find(utf8.lower(msg.text),'статус')) then
+  if (utf8.find(utf8.lower(msg.text),'статус')) then
       if (utf8.find(utf8.lower(msg.text),'температура') or utf8.find(utf8.lower(msg.text),'температуры')) then
         data = http.request "http://192.168.1.74:8080/rest/items/tempHome/state"
         message = "Температура в доме " .. string.sub(data, 1, 4) .. "°"
@@ -59,7 +59,7 @@
       end
     end
     send_msg (msg.from.print_name, message, ok_cb, false)
---      print(utf8.lower(msg.text))
+--      print(utf8.lower(msg.text))]]
       if (utf8.find(utf8.lower(msg.text),'курс')) then
 	 local data = http.request "http://query.yahooapis.com/v1/public/yql?q=select+*+from+yahoo.finance.xchange+where+pair+=+%22USDRUB,EURRUB%22&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys"
 	 local cur = json:decode(data)
